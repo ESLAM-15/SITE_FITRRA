@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>المنتجات — إدارة Fettra _ فِطْره 🎀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+<body>
+<div class="admin-shell" id="adminShell">
+  <aside class="sidebar">
+    <div class="brand">Fettra<span> _ فِطْره 🎀</span></div>
+    <nav class="sidebar-nav"></nav>
+    <div class="sidebar-user" style="padding:0 20px;font-size:12px;color:#a9c2b3;margin-top:10px;"></div>
+    <button class="logout-btn" onclick="adminLogout()">تسجيل الخروج</button>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>المنتجات</h1>
+      <button class="btn btn-primary" onclick="openProductModal()">+ إضافة منتج</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="ابحث عن منتج بالاسم..." />
+    </div>
+
+    <div class="card">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>الصورة</th><th>الاسم</th><th>السعر</th><th>الخصم</th><th>السعر النهائي</th><th>المخزون</th><th>الحالة</th><th></th></tr>
+          </thead>
+          <tbody id="productsBody"></tbody>
+        </table>
+      </div>
+      <div id="productsEmpty" class="empty-state" style="display:none;">
+        <div class="icon">🍃</div><p>لا توجد منتجات بعد. أضف منتجك الأول.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Add / Edit product modal -->
+<div class="modal-overlay" id="productModalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeProductModal()">&times;</button>
+    <h2 id="modalTitle">إضافة منتج</h2>
+    <div class="form-error" id="modalError"></div>
+    <form id="productForm" novalidate>
+      <input type="hidden" name="productId" />
+      <div class="field" id="f-name">
+        <label>اسم المنتج</label>
+        <input type="text" name="name" required maxlength="150" />
+        <small class="error"></small>
+      </div>
+      <div class="field" id="f-description">
+        <label>الوصف</label>
+        <textarea name="description" rows="3" required maxlength="3000"></textarea>
+        <small class="error"></small>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f-price">
+          <label>السعر (جنيه)</label>
+          <input type="number" name="price" min="0" step="0.01" required />
+          <small class="error"></small>
+        </div>
+        <div class="field" id="f-discountAmount">
+          <label>قيمة الخصم (جنيه) — اختياري</label>
+          <input type="number" name="discountAmount" min="0" step="0.01" value="0" />
+          <small class="error"></small>
+        </div>
+      </div>
+      <div class="field" id="f-stock">
+        <label>المخزون (القطع المتاحة)</label>
+        <input type="number" name="stock" min="0" step="1" required />
+        <small class="error"></small>
+      </div>
+      <div class="field" id="f-isActive">
+        <label><input type="checkbox" name="isActive" checked style="width:auto;display:inline-block;" /> ظاهر للعملاء</label>
+      </div>
+      <div class="field">
+        <label>صور المنتج (حتى 6 صور، JPG/PNG/WEBP، بحد أقصى 5 ميجابايت لكل صورة)</label>
+        <input type="file" name="images" id="imageInput" accept="image/jpeg,image/png,image/webp" multiple />
+        <div class="image-upload-preview" id="existingImages"></div>
+        <div class="image-upload-preview" id="newImagesPreview"></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="saveProductBtn">حفظ المنتج</button>
+    </form>
+  </div>
+</div>
+
+<script src="/admin/js/adminApi.js"></script>
+<script src="/admin/js/adminProducts.js"></script>
+</body>
+</html>

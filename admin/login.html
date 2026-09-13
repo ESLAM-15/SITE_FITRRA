@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>تسجيل دخول الإدارة — Fettra _ فِطْره 🎀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+<body>
+<div class="admin-login-wrap">
+  <div class="admin-login-card">
+    <h1>لوحة تحكم Fettra _ فِطْره 🎀</h1>
+    <p class="sub">سجّل الدخول لإدارة المنتجات والطلبات.</p>
+    <div class="form-error" id="formError"></div>
+    <form id="adminLoginForm" novalidate>
+      <div class="field" id="f-username">
+        <label>اسم المستخدم</label>
+        <input type="text" name="username" required maxlength="100" autocomplete="username" />
+        <small class="error"></small>
+      </div>
+      <div class="field" id="f-password">
+        <label>كلمة المرور</label>
+        <input type="password" name="password" required maxlength="200" autocomplete="current-password" />
+        <small class="error"></small>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="submitBtn">تسجيل الدخول</button>
+    </form>
+  </div>
+</div>
+
+<script src="/admin/js/adminApi.js"></script>
+<script src="/admin/js/adminLogin.js"></script>
+</body>
+</html>

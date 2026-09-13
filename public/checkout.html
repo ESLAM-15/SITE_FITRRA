@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>إتمام الطلب — Fettra _ فِطْره 🎀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<main class="container">
+  <div class="section-title"><h2>إتمام الطلب</h2></div>
+  <div class="cart-layout">
+    <form id="checkoutForm" novalidate>
+      <div class="form-card" style="max-width:none;margin:0 0 20px;">
+        <h1 style="font-size:18px;">عنوان التوصيل</h1>
+        <div class="form-error" id="formError"></div>
+
+        <div class="field" id="f-fullName">
+          <label>الاسم الكامل</label>
+          <input type="text" name="fullName" required maxlength="150" />
+          <small class="error"></small>
+        </div>
+        <div class="field-row">
+          <div class="field" id="f-phone">
+            <label>رقم الهاتف</label>
+            <input type="tel" name="phone" required maxlength="20" placeholder="مثال: 01012345678" />
+            <small class="error"></small>
+          </div>
+          <div class="field" id="f-country">
+            <label>الدولة</label>
+            <input type="text" name="country" required maxlength="100" value="مصر" />
+            <small class="error"></small>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" id="f-city">
+            <label>المدينة</label>
+            <input type="text" name="city" required maxlength="100" />
+            <small class="error"></small>
+          </div>
+          <div class="field" id="f-area">
+            <label>المنطقة / الحي</label>
+            <input type="text" name="area" required maxlength="150" />
+            <small class="error"></small>
+          </div>
+        </div>
+        <div class="field" id="f-street">
+          <label>الشارع</label>
+          <input type="text" name="street" required maxlength="200" />
+          <small class="error"></small>
+        </div>
+        <div class="field-row">
+          <div class="field" id="f-building">
+            <label>رقم المبنى</label>
+            <input type="text" name="building" required maxlength="50" />
+            <small class="error"></small>
+          </div>
+          <div class="field" id="f-floor">
+            <label>الدور (اختياري)</label>
+            <input type="text" name="floor" maxlength="50" />
+          </div>
+        </div>
+        <div class="field" id="f-apartment">
+          <label>الشقة (اختياري)</label>
+          <input type="text" name="apartment" maxlength="50" />
+        </div>
+        <div class="field" id="f-notes">
+          <label>ملاحظات التوصيل (اختياري)</label>
+          <textarea name="notes" rows="2" maxlength="500"></textarea>
+        </div>
+      </div>
+
+      <div class="form-card" style="max-width:none;margin:0;">
+        <h1 style="font-size:18px;">طريقة الدفع</h1>
+        <p class="sub">الدفع عند الاستلام — الطريقة الوحيدة المتاحة حاليًا.</p>
+
+        <div class="cod-box">
+          <span class="cod-box-icon">💵</span>
+          <span>سيتم تحصيل قيمة الطلب نقدًا من المندوب عند استلامك الأوردر.</span>
+        </div>
+      </div>
+    </form>
+
+    <div class="summary-card">
+      <div id="checkoutSummary"><div class="skeleton" style="height:120px;"></div></div>
+      <button class="btn btn-primary btn-block" id="placeOrderBtn" style="margin-top:16px;" onclick="submitOrder()">
+        تأكيد الطلب (الدفع عند الاستلام)
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/checkout.js"></script>
+</body>
+</html>
