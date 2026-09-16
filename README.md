@@ -1,8 +1,7 @@
 # Fitra — Online Store
 
 A full online store built with **Node.js + Express + TypeScript** (backend) and plain **HTML/CSS/JS** (frontend, no build step). Includes a hidden admin panel (not linked from the customer site) and a customer-facing shop with cart, checkout, and simulated online payment.
-
-> دليل بالعربي في آخر الملف 👇
+👇
 
 ## Features
 
@@ -140,23 +139,3 @@ At checkout the customer picks **cash on delivery** (order is created as `unpaid
 4. Restart the server. The "Continue with Google" button will appear on `/login.html` and `/register.html`. A customer who signs in with Google and has no existing account gets one created automatically (no password) — if they later sign in with the same email/password flow, it links to the same account.
 
 ---
-
-## دليل التشغيل بالعربي
-
-1. فك ضغط المشروع وافتح المجلد في Visual Studio Code.
-2. افتح Terminal (اضغط `` Ctrl+` ``) ونفّذ:
-   ```
-   npm install
-   ```
-3. اعمل نسخة من ملف `.env.example` باسم `.env` وعدّل فيه:
-   - `JWT_CUSTOMER_SECRET` و `JWT_ADMIN_SECRET`: حط نصين عشوائيين طويلين مختلفين عن بعض.
-   - `ADMIN_USERNAME` و `ADMIN_PASSWORD`: اليوزر نيم والباسورد اللي هتدخل بيهم لوحة الأدمن (بيتعملهم seed تلقائي أول ما تشغل السيرفر).
-4. شغّل المشروع:
-   ```
-   npm run dev
-   ```
-5. افتح المتصفح على:
-   - المتجر: http://localhost:3000
-   - لوحة الأدمن: http://localhost:3000/admin/login.html (الرابط ده مش موجود في أي مكان في صفحات المستخدم، لازم تدخله يدوي)
-
-كل حاجة طلبتها موجودة: صفحة أدمن مخفية بتضيف منتجات بأكتر من صورة وسعر وخصم ووصف وعدد قطع، وصفحة مستخدم (كلها بالعربي) بعربة تسوق شخصية وخطوة شراء فيها عنوان تفصيلي واختيار طريقة الدفع (كاش عند الاستلام أو أونلاين بالبطاقة)، مع تحقق (validation) على كل مدخل وحماية على كل حاجة حساسة، وتصميم متجاوب ومتحرك، وكمان إمكانية تسجيل الدخول بحساب جوجل بدل عمل حساب جديد (شوف قسم "Setting up Sign in with Google" فوق عشان تفعّلها بالـ Client ID بتاعك).
